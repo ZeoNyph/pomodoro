@@ -12,14 +12,18 @@ export default function Timer() {
   return (
     <main className="flex flex-col h-screen w-screen animate-(--animate-fade-in)">
       <Navbar />
-      <div className="flex flex-col gap-10 sm:flex-row px-4 sm:px-9 translate-y-20 sm:translate-y-50 animate-(--animate-rise)">
-        <div className="">
+      <div className="flex flex-col sm:flex-row px-4 sm:px-9 items-center justify-center animate-(--animate-rise)">
+        <div className="items-center">
           <h2 className="text-xl sm:text-2xl text-center sm:text-left ">
-            Feeling <em className="font-extrabold">unmotivated?</em>
+            Time remaining:
           </h2>
-          <h4 className="text-xl font-thin sm:text-2xl text-center sm:text-left">
-            Use a pomodoro timer to help you stay on track!
-          </h4>
+          <div className="flex flex-row items-center justify-center mt-3">
+            <p className="text-3xl font-black" id="min_1">2</p>
+            <p className="text-3xl font-black" id="min_2">5</p>
+            <p className="text-3xl font-black" id="separator">:</p>
+            <p className="text-3xl font-black" id="sec_1">0</p>
+            <p className="text-3xl font-black" id="sec_2">0</p>
+          </div>
         </div>
       </div>
     </main>

@@ -55,6 +55,8 @@ export function PomodoroForm() {
         placeholder="Duration"
         defaultValue={formData.pomodoro_time || 25}
         onChange={handleChange}
+        autoFocus={false}
+        max={60}
       />
       <label id="break_time" className="text-xl font-semibold">
         Break Duration (mins)

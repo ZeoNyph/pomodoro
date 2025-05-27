@@ -3,7 +3,7 @@ import { HomePage } from "../welcome/homepage";
 
 export function meta() {
   return [
-    { title: "Pomodoro Timer" },
+    { title: "Pomodoro Timer - Home" },
     { name: "description", content: "Welcome to React Router!" },
   ];
 }

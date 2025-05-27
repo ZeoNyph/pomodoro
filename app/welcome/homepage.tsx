@@ -4,7 +4,7 @@ import { PomodoroForm } from "~/components/pomodoro_form";
 
 export function HomePage() {
   return (
-    <main className="flex flex-col h-screen w-screen animate-(--animate-fade-in)">
+    <main className="flex flex-col overscroll-none h-screen w-screen animate-(--animate-fade-in)">
       <Navbar />
       <div className="flex flex-col gap-10 sm:flex-row px-4 sm:px-9 translate-y-20 sm:translate-y-50 animate-(--animate-rise)">
         <div className="align-middle text-center self-center-safe sm:px-20">

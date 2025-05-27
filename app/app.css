@@ -1,8 +1,9 @@
 @import "tailwindcss";
 
 @theme {
-  --font-sans: "JetBrains Mono", ui-sans-serif, system-ui, sans-serif,
-    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-sans:
+    "JetBrains Mono", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 
   --animate-fade-in: fade 0.85s ease-in-out;
   --animate-rise: rise 0.85s ease-in-out;
@@ -23,7 +24,7 @@
     }
 
     70% {
-      transform: translate(0, -5px)
+      transform: translate(0, -5px);
     }
 
     100% {

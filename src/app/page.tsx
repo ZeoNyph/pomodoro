@@ -48,9 +48,7 @@ export default function Home() {
   }
 
   useEffect(() => {
-    if (!("Notification" in window)) {
-      alert("This browser does not support desktop notification");
-    } else {
+    if (("Notification" in window)) {
       Notification.requestPermission();
     }
   }, []);
@@ -66,7 +64,7 @@ export default function Home() {
   }, [remainingTime, isSelect]);
 
   return (
-    <div className="font-mono flex flex-col items-center justify-baseline max-w-screen gap-4 animate-fade max-h-screen">
+    <div className="font-mono flex flex-col items-center justify-baseline max-w-screen gap-4 animate-fade">
       <h1 className="font-bold my-6 text-2xl w-auto text-center">POMODORO TIMER</h1>
       {isSelect || remainingTime < 0 ? <h2 className="text-xl font-bold text-center animate-fade">How long do you want the timer to be? </h2>: null}
       {isSelect || remainingTime < 0 ? <TimerSelect
@@ -91,9 +89,10 @@ export default function Home() {
           Notifications are blocked. Note that you will not get Pomodoro notifications when the timer runs out.
         </p>
       ) : null}
-      <footer className="w-full max-w-screen-xl mx-auto p-4 md:py-8 text-center text-sm text-gray-500 fixed bottom-0 self-center">
+      <div className="flex-grow" />
+      <footer className="w-full max-w-screen-xl mx-auto p-4 md:py-8 text-center text-sm text-gray-500 animate-fade">
           © {new Date().getFullYear()} <a href="https://github.com/ZeoNyph" className="font-semibold" target="_blank" rel="noopener noreferrer">ZeoNyph</a>. All rights reserved.
-        </footer>
+      </footer>
     </div>
   );
 }

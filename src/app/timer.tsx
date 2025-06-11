@@ -26,10 +26,14 @@ export function Timer({
     }, [end]);
 
     return(
-        <div className="flex flex-col w-auto h-auto">
-            {remainingTime > 0 && (
-                <p className="text-2xl">
+        <div className="flex flex-col w-auto h-auto animate-fade">
+            {remainingTime != 0 ? (
+                <p className="text-4xl font-bold">
                     {Math.floor(remainingTime / 60000)}:{Math.floor((remainingTime % 60000) / 1000).toString().padStart(2, '0')}
+                </p>
+            ) : (
+                <p className="text-4xl font-bold">
+                    {mins}:{secs.toString().padStart(2, '0')}
                 </p>
             )}
         </div>

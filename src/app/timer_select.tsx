@@ -46,7 +46,7 @@ export function TimerSelect({
   }
 
   return (
-    <div className="flex flex-col w-auto h-auto">
+    <div className="flex flex-col w-auto h-auto animate-fade">
       <div className="py-2 gap-3 flex flex-row items-center">
         <div className="flex flex-col gap-6">
           <button

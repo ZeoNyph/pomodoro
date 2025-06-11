@@ -1,9 +1,10 @@
 "use client";
 
-import React from "react";
+import React, { useTransition } from "react";
 
-import { useEffect, useState } from "react";
+import {  useState } from "react";
 import { TimerSelect } from "./timer_select";
+import { Timer } from "./timer";
 
 export default function Home() {
   const [mins, setMins] = useState(25);
@@ -22,15 +23,19 @@ export default function Home() {
     setIsSelect(!isSelect ? true : false);
   }
 
+
   return (
     <div className="font-mono flex flex-col items-center justify-center max-w-screen gap-4">
       <h1 className="font-bold my-6 text-2xl w-auto">POMODORO TIMER</h1>
-      <TimerSelect
+      
+      {isSelect? <TimerSelect
         mins={mins}
         secs={secs}
         handleMins={handleMins}
         handleSecs={handleSecs}
-      />
+      /> : <Timer
+        mins={mins}
+        secs={secs}/>}
       <button
         className="bg-gray-500 rounded-3xl text-l p-2"
         onClick={handleTimer}

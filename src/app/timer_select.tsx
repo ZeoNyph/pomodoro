@@ -33,7 +33,7 @@ export function TimerSelect({
   function handleSecChange(e: React.MouseEvent<HTMLButtonElement>) {
     const id = (e.currentTarget as HTMLElement).id;
     if (id === "sec_up") {
-      const value = secs + 1 > 59 ? "0" : Math.min(mins + 1, 59).toString();
+      const value = secs + 1 > 59 ? "0" : Math.min(secs + 1, 59).toString();
       handleSecs({
         target: { value: value },
       } as React.ChangeEvent<HTMLInputElement>);
@@ -49,12 +49,13 @@ export function TimerSelect({
     <div className="flex flex-col w-auto h-auto animate-fade">
       <div className="py-2 gap-3 flex flex-row items-center">
         <div className="flex flex-col gap-6">
+          <h2 className="text-m text-center font-light">Minutes</h2>
           <button
             id="min_up"
-            className="flex flex-row bg-gray-500 size-8 justify-center align-middle self-center p-2 rounded-3xl"
+            className="flex flex-row bg-gray-500 size-8 justify-center align-middle self-center p-2 rounded-3xl hover:bg-gray-300 transition-colors duration-200 group"
             onClick={handleMinChange}
           >
-            <FaArrowUp />
+            <FaArrowUp className="text-white group-hover:text-black" />
           </button>
           <input
             id="min"
@@ -65,23 +66,24 @@ export function TimerSelect({
             size={2}
             value={mins < 10 ? `0${mins}` : mins}
             onChange={handleMins}
-            className="bg-gray-500 rounded-2xl text-2xl text-center h-16 w-12"
+            className="bg-gray-500 rounded-2xl text-2xl text-center h-16 w-12 self-center active:bg-gray-400 focus:bg-gray-400 transition-colors duration-200"
           ></input>
           <button
             id="min_down"
-            className="flex flex-row bg-gray-500 size-8 justify-center align-middle self-center p-2 rounded-3xl"
+            className="flex flex-row bg-gray-500 size-8 justify-center align-middle self-center p-2 rounded-3xl hover:bg-gray-300 transition-colors duration-200 group"
             onClick={handleMinChange}
           >
-            <FaArrowDown />
+            <FaArrowDown className="text-white group-hover:text-black" />
           </button>
         </div>
         <div className="flex flex-col gap-6">
+          <h2 className="text-m text-center font-light">Seconds</h2>
           <button
             id="sec_up"
-            className="flex flex-row bg-gray-500 size-8 justify-center align-middle self-center p-2 rounded-3xl"
+            className="flex flex-row bg-gray-500 size-8 justify-center align-middle self-center p-2 rounded-3xl hover:bg-gray-300 transition-colors duration-200 group"
             onClick={handleSecChange}
           >
-            <FaArrowUp />
+            <FaArrowUp className="text-white group-hover:text-black" />
           </button>
           <input
             id="sec"
@@ -92,14 +94,14 @@ export function TimerSelect({
             size={2}
             value={secs < 10 ? `0${secs}` : secs}
             onChange={handleSecs}
-            className="bg-gray-500 rounded-2xl text-2xl text-center h-16 w-12"
+            className="bg-gray-500 rounded-2xl text-2xl text-center h-16 w-12 self-center active:bg-gray-400 focus:bg-gray-400  transition-colors duration-200"
           />
           <button
             id="sec_down"
-            className="flex flex-row bg-gray-500 size-8 justify-center align-middle self-center p-2 rounded-3xl"
+            className="flex flex-row bg-gray-500 size-8 justify-center align-middle self-center p-2 rounded-3xl hover:bg-gray-300 transition-colors duration-200 group"
             onClick={handleSecChange}
           >
-            <FaArrowDown />
+            <FaArrowDown className="text-white group-hover:text-black" />
           </button>
         </div>
       </div>

@@ -25,9 +25,9 @@ export default function Home() {
 
 
   return (
-    <div className="font-mono flex flex-col items-center justify-center max-w-screen gap-4">
+    <div className="font-mono flex flex-col items-center justify-center max-w-screen gap-4 animate-fade">
       <h1 className="font-bold my-6 text-2xl w-auto">POMODORO TIMER</h1>
-      
+      {isSelect? <h2 className="text-xl font-bold text-center animate-fade">How long do you want the timer to be? </h2>: null}
       {isSelect? <TimerSelect
         mins={mins}
         secs={secs}
@@ -37,7 +37,7 @@ export default function Home() {
         mins={mins}
         secs={secs}/>}
       <button
-        className="bg-gray-500 rounded-3xl text-l p-2"
+        className="bg-gray-500 rounded-3xl text-xl p-2 animate-fade hover:bg-gray-300 hover:text-black transition-colors duration-200"
         onClick={handleTimer}
       >
         {isSelect ? "Start" : "Stop"}

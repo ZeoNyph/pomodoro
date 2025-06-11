@@ -19,14 +19,14 @@ export function Timer({
     useEffect(() => {
         const calculatedEnd = Date.now() + (mins * 60 * 1000 + secs * 1000);
         setEnd(calculatedEnd);
-    }, []);
+    }, [mins, secs]);
 
     useEffect(() => {
         const interval = setInterval(() => {
             setRemainingTime(end - Date.now());
         }, 100);
         return () => clearInterval(interval);
-    }, [end]);
+    }, [end, setRemainingTime]);
 
     return(
         <div className="flex flex-col animate-fade m-2">

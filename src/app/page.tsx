@@ -10,7 +10,9 @@ export default function Home() {
   const [isClient, setIsClient] = useState(false);
   const [pomodoroMins, setPomodoroMins] = useState(25);
   const [pomodoroSecs, setPomodoroSecs] = useState(0);
+  // @eslint-disable-next-line no-unused-vars
   const [timerMins, setTimerMins] = useState(5);
+  // @eslint-disable-next-line no-unused-vars
   const [timerSecs, setTimerSecs] = useState(0);
   const [isSelect, setIsSelect] = useState(true);
   const [remainingTime, setRemainingTime] = useState(0);

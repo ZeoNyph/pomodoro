@@ -55,9 +55,10 @@ export default function Home() {
 
   useEffect(() => {
     if (remainingTime <= 0 && !isSelect) {
-      new Notification("Pomodoro Timer", {
+      let notif = new Notification("Pomodoro Timer", {
         body: "Time's up! Take a break.",
       });
+      notif.close();
       setRemainingTime(0);
       setIsSelect(true);
     }
@@ -84,7 +85,7 @@ export default function Home() {
       >
         {isSelect ? "Start" : "Stop"}
       </button>
-      {isClient && Notification.permission === "denied" ? (
+      {isClient && typeof window !== "undefined" && "Notification" in window && Notification.permission === "denied" ? (
         <p className="text-gray-700 font-extralight">
           Notifications are blocked. Note that you will not get Pomodoro notifications when the timer runs out.
         </p>

@@ -54,7 +54,7 @@ export default function Home() {
   }, []);
 
   useEffect(() => {
-    if (remainingTime <= 0 && !isSelect) {
+    if (remainingTime <= 0 && !isSelect && isClient && typeof window !== "undefined" && "Notification" in window) {
       let notif = new Notification("Pomodoro Timer", {
         body: "Time's up! Take a break.",
       });

@@ -4,15 +4,18 @@ import { useEffect, useState } from "react";
 
 type TimerProps = {
     mins: number,
-    secs: number
+    secs: number,
+    remainingTime: number,
+    setRemainingTime: React.Dispatch<React.SetStateAction<number>>
 }
 
 export function Timer({
     mins,
-    secs
+    secs,
+    remainingTime,
+    setRemainingTime
 } : TimerProps){
     const[end, setEnd] = useState(0);
-    const [remainingTime, setRemainingTime] = useState(0);
     useEffect(() => {
         const calculatedEnd = Date.now() + (mins * 60 * 1000 + secs * 1000);
         setEnd(calculatedEnd);

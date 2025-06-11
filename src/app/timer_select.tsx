@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { FaArrowDown, FaArrowUp } from "react-icons/fa";
 
 type TimerSelectProps = {

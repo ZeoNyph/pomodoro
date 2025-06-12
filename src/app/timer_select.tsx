@@ -66,6 +66,20 @@ export function TimerSelect({
             size={2}
             value={mins < 10 ? `0${mins}` : mins}
             onChange={handleMins}
+            onWheel={(e) => {
+              e.preventDefault();
+              if (e.deltaY < 0) {
+                const value = mins + 1 > 59 ? "0" : Math.min(mins + 1, 59).toString();
+                handleMins({
+                  target: { value: value },
+                } as React.ChangeEvent<HTMLInputElement>);
+              } else if (e.deltaY > 0) {
+                const value = mins - 1 < 0 ? "59" : Math.max(mins - 1, 0).toString();
+                handleMins({
+                  target: { value: value },
+                } as React.ChangeEvent<HTMLInputElement>);
+              }
+            }}
             className="bg-gray-500 rounded-2xl text-2xl text-center h-16 w-12 self-center active:bg-gray-400 focus:bg-gray-400 transition-colors duration-200"
           ></input>
           <button
@@ -94,6 +108,20 @@ export function TimerSelect({
             size={2}
             value={secs < 10 ? `0${secs}` : secs}
             onChange={handleSecs}
+            onWheel={(e) => {
+              e.preventDefault();
+              if (e.deltaY < 0) {
+                const value = secs + 1 > 59 ? "0" : Math.min(secs + 1, 59).toString();
+                handleSecs({
+                  target: { value: value },
+                } as React.ChangeEvent<HTMLInputElement>);
+              } else if (e.deltaY > 0) {
+                const value = secs - 1 < 0 ? "59" : Math.max(secs - 1, 0).toString();
+                handleSecs({
+                  target: { value: value },
+                } as React.ChangeEvent<HTMLInputElement>);
+              }
+            }}
             className="bg-gray-500 rounded-2xl text-2xl text-center h-16 w-12 self-center active:bg-gray-400 focus:bg-gray-400  transition-colors duration-200"
           />
           <button

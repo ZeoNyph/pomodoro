@@ -29,7 +29,7 @@ export function Timer({
     }, [end, setRemainingTime]);
 
     return(
-        <div className="flex flex-col animate-fade m-2">
+        <div className="flex flex-col m-2 animate-fade">
             {remainingTime != 0 ? (
                 <p className="text-4xl font-bold text-center self-center">
                     {Math.floor(remainingTime / 60000).toString().padStart(2, '0')}:{Math.floor((remainingTime % 60000) / 1000).toString().padStart(2, '0')}

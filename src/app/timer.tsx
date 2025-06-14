@@ -17,13 +17,17 @@ export function Timer({
 } : TimerProps){
     const[end, setEnd] = useState(0);
     useEffect(() => {
-        const calculatedEnd = Date.now() + (mins * 60 * 1000 + secs * 1000);
+        const calculatedEnd = Date.now() + remainingTime;
         setEnd(calculatedEnd);
-    }, [mins, secs]);
+    }, [remainingTime]);
 
     useEffect(() => {
         const interval = setInterval(() => {
             setRemainingTime(end - Date.now());
+            if (remainingTime <= 0) {
+                clearInterval(interval);
+                setRemainingTime(0);
+            }
         }, 100);
         return () => clearInterval(interval);
     }, [end, setRemainingTime]);
@@ -36,7 +40,7 @@ export function Timer({
                 </p>
             ) : (
                 <p className="text-4xl font-bold text-center self-center">
-                    {mins.toString().padStart(2, '0')}:{secs.toString().padStart(2, '0')}
+                    {mins.toString().padStart(2, '0')}:{(secs-1).toString().padStart(2, '0')}
                 </p>
             )}
         </div>

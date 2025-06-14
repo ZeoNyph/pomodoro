@@ -55,6 +55,7 @@ export default function Home() {
 
   useEffect(() => {
     if (remainingTime <= 0 && !isSelect && isClient && typeof window !== "undefined" && "Notification" in window) {
+      debugger;
       if (!isBreak) {
       // Pomodoro finished, start break
       new Notification("Pomodoro Timer", {

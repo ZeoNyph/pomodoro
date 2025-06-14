@@ -8,9 +8,6 @@ const compat = new FlatCompat({
 const eslintConfig = [
   ...compat.config({
     extends: ['next'],
-    rules: {
-      '@typescript-eslint/no-unused-vars': 'off',
-    },
   }),
 ]
  

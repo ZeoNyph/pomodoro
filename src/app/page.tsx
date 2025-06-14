@@ -38,6 +38,10 @@ export default function Home() {
 
   function handleSelect() {
     if (isSelect) {
+      if (pomodoroMins < 0 && pomodoroSecs <= 0 || timerMins < 0 && timerSecs <= 0) {
+        alert("Please enter valid time values.");
+        return;
+      }
       const totalSeconds = pomodoroMins * 60 + pomodoroSecs;
       setRemainingTime(totalSeconds * 1000);
     } else {
@@ -75,11 +79,11 @@ export default function Home() {
   }, [remainingTime, isSelect, isBreak, isClient, timerMins, timerSecs, pomodoroMins, pomodoroSecs]);
 
   return (
-    <div className="font-mono flex flex-col items-center justify-baseline min-h-[200px] max-w-screen gap-4 animate-fade shrink-0">
-      <h1 className="font-bold my-6 text-2xl w-auto text-center">POMODORO TIMER</h1>
+    <div className={"font-mono flex flex-col items-center justify-baseline w-screen h-screen gap-4 shrink-0 transition-colors duration-500 " + (!isBreak ? "bg-gray-800" : "bg-blue-950")}>
+      <h1 className="font-bold my-6 text-2xl w-auto text-center animate-fade ">POMODORO TIMER</h1>
       {isSelect? (
-        <div className="flex flex-col md:flex-row text-center items-center gap-10">
-          <div className="flex flex-col items-center">
+        <div className="flex flex-col md:flex-row text-center items-center gap-10  animate-fade ">
+          <div className="flex flex-col items-center  animate-fade ">
             <h2 className="text-xl font-bold text-center animate-fade">Pomodoro length</h2>
             <TimerSelect
               mins={pomodoroMins}
@@ -88,8 +92,8 @@ export default function Home() {
               handleSecs={handlePomodoroSecs}
             />
           </div>
-          <div className="flex flex-col items-center">
-            <h2 className="text-xl font-bold text-center animate-fade">Break length</h2>
+          <div className="flex flex-col items-center  animate-fade ">
+            <h2 className="text-xl font-bold text-center">Break length</h2>
             <TimerSelect
               mins={timerMins}
               secs={timerSecs}
@@ -99,8 +103,8 @@ export default function Home() {
           </div>
         </div>
       ) : (
-        <div className="flex flex-col items-center">
-          <h2 className="text-xl font-bold text-center animate-fade">
+        <div className="flex flex-col items-center  animate-fade ">
+          <h2 className="text-xl font-bold text-center">
             {isBreak ? "Break Time" : "Pomodoro Time"}
           </h2>
           <Timer
@@ -118,7 +122,7 @@ export default function Home() {
         {isSelect ? "Start" : "Stop"}
       </button>
       {isClient && typeof window !== "undefined" && "Notification" in window && Notification.permission === "denied" ? (
-        <p className="text-gray-700 font-extralight">
+        <p className="text-gray-700 font-extralight  animate-fade ">
           Notifications are blocked. Note that you will not get Pomodoro notifications when the timer runs out.
         </p>
       ) : null}
